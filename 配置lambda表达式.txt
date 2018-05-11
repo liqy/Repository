@@ -1,0 +1,43 @@
+根目录下面build.gradle配置：
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()//与lambda表达式配置相关
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'me.tatarka:gradle-retrolambda:3.7.0'//与lambda表达式配置相关
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        mavenCentral()//与lambda表达式配置相关
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+app目录下面的build.gradle配置
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'//与lambda表达式配置相关
+
+android{
+    ......省略
+    compileOptions {//使用JAVA8语法解析
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+compile 'me.tatarka:gradle-retrolambda:3.7.0'//与lambda表达式配置相关
+
+
