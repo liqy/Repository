@@ -1,0 +1,25 @@
+﻿external tools
+
+1.javah-头文件
+
+$JDKPath$\bin\javah.exe
+
+-classpath java -d jni -jni -encoding UTF-8 $FileClass$
+
+$ModuleFileDir$\src\main
+
+2.javap-方法签名
+
+$JDKPath$\bin\javap.exe
+
+-classpath . -s -p $FileClass$
+
+$ModuleFileDir$\build\intermediates\classes\debug
+
+3.javap-反编译
+
+$JDKPath$\bin\javap.exe
+
+-classpath . -c $FileClass$
+
+$ModuleFileDir$\build\intermediates\classes\debug
